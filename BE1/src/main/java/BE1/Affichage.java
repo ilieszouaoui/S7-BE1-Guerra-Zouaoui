@@ -13,13 +13,18 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author iliès
+ * @author iliï¿½s
  */
 public class Affichage extends JFrame{
      public Affichage(){
-        setTitle("Jeu Araignée");
+        setTitle("Jeu Araignï¿½e");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500,500);
+
+        JPanel p = (JPanel) getContentPane();
+        JLabel text = new JLabel("Jeu de l'araignee");
+        p.add("North", text);
+        pack();
     }
-    
+
 }
