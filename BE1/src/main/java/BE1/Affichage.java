@@ -5,26 +5,49 @@
  */
 package BE1;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  *
  * @author ili�s
  */
 public class Affichage extends JFrame{
+    JPanel p1,p2,p3,p4;
+
      public Affichage(){
-        setTitle("Jeu Araign�e");
+        setTitle("Jeu de l'araignée");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500,500);
 
-        JPanel p = (JPanel) getContentPane();
-        JLabel text = new JLabel("Jeu de l'araignee");
-        p.add("North", text);
-        pack();
+        // menu
+        JMenuBar menubar = new JMenuBar();
+        JMenu menu = new JMenu("Jeu");
+        JMenuItem njeu = new JMenuItem("Nouveau jeu");
+        menu.add(njeu);
+        JMenuItem regles = new JMenuItem("Règles du jeu");
+        menu.add(regles);
+        JMenuItem quit = new JMenuItem("Quitter");
+        menu.add(quit);
+        menubar.add(menu);
+        setJMenuBar(menubar);
+
+        // création des JPanel
+        p1 = new JPanel();
+        p1.setLayout(new FlowLayout());
+        JLabel l1 = new JLabel("Joueur 1, c'est à vous.");
+        p1.add(l1);
+
+        p2 = new JPanel();
+        p2.setLayout(new BoxLayout(p2,BoxLayout.PAGE_AXIS));
+        p2.add(new JLabel("J1"));
+
+
+
+
+        setLayout(new BorderLayout());
+        add(p1,BorderLayout.NORTH);
+        add(p2,BorderLayout.WEST);
+        pack()
     }
 
 }

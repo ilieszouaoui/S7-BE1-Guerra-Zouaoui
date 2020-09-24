@@ -7,7 +7,7 @@ package BE1;
 
 /**
  *
- * @author iliès
+ * @author iliï¿½s
  */
 public class Main {
 
@@ -19,5 +19,5 @@ public class Main {
         Affichage ex = new Affichage();
         ex.setVisible(true);
     }
-    
+
 }
