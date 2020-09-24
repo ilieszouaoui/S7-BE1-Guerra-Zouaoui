@@ -6,6 +6,7 @@
 package BE1;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -47,7 +48,7 @@ public class Affichage extends JFrame{
         setLayout(new BorderLayout());
         add(p1,BorderLayout.NORTH);
         add(p2,BorderLayout.WEST);
-        pack()
+        pack();
     }
 
 }
