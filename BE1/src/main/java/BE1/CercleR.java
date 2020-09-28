@@ -14,12 +14,8 @@ import java.awt.geom.*;
  * @author User
  */
 public class CercleR extends JPanel {
+    
 
-    //private String couleur;
-
-    //public Cercle(String clr){
-    //    couleur=clr;
-    //}
     // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
     // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
 
@@ -29,7 +25,7 @@ public class CercleR extends JPanel {
         Graphics2D g2d = (Graphics2D) g;
         GradientPaint clr = new GradientPaint(0,0,Color.RED,100, 0,Color.RED);
         g2d.setPaint(clr);
-        g2d.fill (new Ellipse2D.Double(0, 0, 100, 100));
+        g2d.fill (new Ellipse2D.Double(0,0, 50, 50));
     }
 
 
