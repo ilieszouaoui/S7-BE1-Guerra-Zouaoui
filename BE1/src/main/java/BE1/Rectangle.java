@@ -13,27 +13,25 @@ import java.awt.geom.*;
  *
  * @author User
  */
-public class CercleR extends JPanel {
+public class Rectangle extends JPanel {
 
-    private Color color;
+
     // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
     // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
 
-    public CercleR(String couleur) {
-      if (couleur=="rouge"){
-        color = Color.RED;
-      }
-      else {
-        color = Color.BLACK;
-      }
-    }
+
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setPaint(color);
-        g2d.fill (new Ellipse2D.Double(0,0, 50, 50));
+        Rectangle2D.Double rect = new Rectangle2D.Double(0,0,80,80);
+        g2d.setPaint(Color.WHITE);
+        g2d.fill(rect);
+        g2d.setPaint(Color.BLACK);
+        g2d.draw(rect);
+
+
     }
 
 
