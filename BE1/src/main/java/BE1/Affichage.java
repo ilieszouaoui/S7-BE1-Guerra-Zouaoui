@@ -18,7 +18,7 @@ public class Affichage extends JFrame{
      public Affichage(){
         setTitle("Jeu de l'araignée");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(new Dimension(500,500));
+        setPreferredSize(new Dimension(350,350));
         setLocationRelativeTo(null);
 
         // menu
@@ -43,13 +43,18 @@ public class Affichage extends JFrame{
         p2.setPreferredSize(new Dimension(50,200));
         p2.setLayout(new BoxLayout(p2,BoxLayout.PAGE_AXIS));
         p2.add(new JLabel("J1"));
-        p2.add(new CercleR());
-        p2.add(new CercleR());
-        p2.add(new CercleR());
+        p2.add(new Cercle("rouge"));
+        p2.add(new Cercle("rouge"));
+        p2.add(new Cercle("rouge"));
 
         p3 = new JPanel();
+        p3.setPreferredSize(new Dimension(50,200));
         p3.setLayout(new BoxLayout(p3,BoxLayout.PAGE_AXIS));
         p3.add(new JLabel("J2"));
+        p3.add(new Cercle("noir"));
+        p3.add(new Cercle("noir"));
+        p3.add(new Cercle("noir"));
+
 
 
 
