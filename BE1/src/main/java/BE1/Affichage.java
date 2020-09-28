@@ -43,13 +43,17 @@ public class Affichage extends JFrame{
         p2.setPreferredSize(new Dimension(50,200));
         p2.setLayout(new BoxLayout(p2,BoxLayout.PAGE_AXIS));
         p2.add(new JLabel("J1"));
-        p2.add(new CercleR());
-        p2.add(new CercleR());
-        p2.add(new CercleR());
+        p2.add(new CercleR("rouge"));
+        p2.add(new CercleR("rouge"));
+        p2.add(new CercleR("rouge"));
 
         p3 = new JPanel();
+        p2.setPreferredSize(new Dimension(50,200));
         p3.setLayout(new BoxLayout(p3,BoxLayout.PAGE_AXIS));
         p3.add(new JLabel("J2"));
+        p3.add(new CercleR("noir"));
+        p3.add(new CercleR("noir"));
+        p3.add(new CercleR("noir"));
 
 
 
