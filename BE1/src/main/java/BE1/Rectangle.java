@@ -8,18 +8,23 @@ package BE1;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.geom.*;
+import java.awt.event.*;
 
 /**
  *
  * @author User
  */
-public class Rectangle extends JPanel {
+public class Rectangle extends JPanel implements MouseListener{
+    private boolean remplissage;
 
+    public Rectangle() {
+        this.remplissage = false;
+    }
+
+    
 
     // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
     // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
-
-
 
     @Override
     public void paintComponent(Graphics g) {
@@ -30,9 +35,32 @@ public class Rectangle extends JPanel {
         g2d.fill(rect);
         g2d.setPaint(Color.BLACK);
         g2d.draw(rect);
-
-
+        addMouseListener(this);
+    }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+            // TODO Auto-generated method stub
+            System.out.println("Coucou");
     }
 
+    @Override
+    public void mousePressed(MouseEvent e) {
+            // TODO Auto-generated method stub
+    }
 
+    @Override
+    public void mouseReleased(MouseEvent e) {
+            // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+            // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+            // TODO Auto-generated method stub
+    }
 }

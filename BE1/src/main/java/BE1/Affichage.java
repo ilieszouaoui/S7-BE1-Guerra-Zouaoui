@@ -68,12 +68,6 @@ public class Affichage extends JFrame{
         p4.add(new Rectangle());
         p4.add(new Rectangle());
 
-
-        //public void paint (Graphics g) {
-        //    Graphics2D g2 = (Graphics2D) g;
-        //}
-
-
         setLayout(new BorderLayout());
         add(p1,BorderLayout.NORTH);
         add(p2,BorderLayout.WEST);
