@@ -29,14 +29,17 @@ public class Affichage extends JFrame{
         // menu
         JMenuBar menubar = new JMenuBar();
         JMenu menu = new JMenu("Jeu");
-        JMenuItem njeu = new JMenuItem("Nouveau jeu");
-        menu.add(njeu);
+        //JMenuItem njeu = new JMenuItem("Nouveau jeu");
+        //menu.add(njeu);
         JMenuItem regles = new JMenuItem("R√®gles du jeu");
         menu.add(regles);
         JMenuItem quit = new JMenuItem("Quitter");
         menu.add(quit);
         menubar.add(menu);
         setJMenuBar(menubar);
+        //njeu.addActionListener(new TraitementMenu(1,this));
+        regles.addActionListener(new TraitementMenu(2,this));
+        quit.addActionListener(new TraitementMenu(3,this));
 
         // cr√©ation des JPanel
         p1 = new JPanel();
@@ -66,25 +69,25 @@ public class Affichage extends JFrame{
         p4 = new JPanel();
         p4.setPreferredSize(new Dimension(260,300));
         p4.setLayout(new GridLayout(3,3));
-        
-        
+
+
         for (int k=0;k<9;k++) {
             p4.add(rect_grille[k] = new Rectangle(this,p4));
         }
-        
+
         setLayout(new BorderLayout());
         add(p1,BorderLayout.NORTH);
         add(p2,BorderLayout.WEST);
         add(p3,BorderLayout.EAST);
         add(p4,BorderLayout.CENTER);
-        setJoueurCourant(1);// Initialisation du jeu en debutant par le joueur 1 
+        setJoueurCourant(1);// Initialisation du jeu en debutant par le joueur 1
         pack();
 
     }
     public int getJoueurCourant() {
         return joueur_courant;
     }
-    
+
     public boolean getPionDansLaMain() {
         return main;
     }
@@ -105,31 +108,31 @@ public class Affichage extends JFrame{
 
     public void pionDansLaMain(boolean pion) {
         main = pion;
-        System.out.println(main);
+        //System.out.println("Pion dans la main = "+main);
         }
-    
+
     public void Victoire(){
-        
-        if (rect_grille[0].getCouleur()==rect_grille[1].getCouleur() && rect_grille[1].getCouleur()==rect_grille[2].getCouleur() && rect_grille[0].getCouleur()==Color.RED || 
+
+        if (rect_grille[0].getCouleur()==rect_grille[1].getCouleur() && rect_grille[1].getCouleur()==rect_grille[2].getCouleur() && rect_grille[0].getCouleur()==Color.RED ||
             rect_grille[3].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[5].getCouleur() && rect_grille[3].getCouleur()==Color.RED||
-            rect_grille[6].getCouleur()==rect_grille[7].getCouleur() && rect_grille[7].getCouleur()==rect_grille[8].getCouleur() && rect_grille[6].getCouleur()==Color.RED||    
-            rect_grille[0].getCouleur()==rect_grille[3].getCouleur() && rect_grille[3].getCouleur()==rect_grille[6].getCouleur() && rect_grille[0].getCouleur()==Color.RED||    
-            rect_grille[1].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[7].getCouleur() && rect_grille[1].getCouleur()==Color.RED||    
-            rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.RED||    
-            rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.RED||    
+            rect_grille[6].getCouleur()==rect_grille[7].getCouleur() && rect_grille[7].getCouleur()==rect_grille[8].getCouleur() && rect_grille[6].getCouleur()==Color.RED||
+            rect_grille[0].getCouleur()==rect_grille[3].getCouleur() && rect_grille[3].getCouleur()==rect_grille[6].getCouleur() && rect_grille[0].getCouleur()==Color.RED||
+            rect_grille[1].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[7].getCouleur() && rect_grille[1].getCouleur()==Color.RED||
+            rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.RED||
+            rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.RED||
             rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.RED){
-            l1.setText("Le joueur 1 ‡ gagnÈ");
+            JOptionPane.showMessageDialog(this,"Bravo, le joueur 1 a gagn√© !");
         }
-        
-        if (rect_grille[0].getCouleur()==rect_grille[1].getCouleur() && rect_grille[1].getCouleur()==rect_grille[2].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK || 
+
+        if (rect_grille[0].getCouleur()==rect_grille[1].getCouleur() && rect_grille[1].getCouleur()==rect_grille[2].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK ||
             rect_grille[3].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[5].getCouleur() && rect_grille[3].getCouleur()==Color.BLACK||
-            rect_grille[6].getCouleur()==rect_grille[7].getCouleur() && rect_grille[7].getCouleur()==rect_grille[8].getCouleur() && rect_grille[6].getCouleur()==Color.BLACK||    
-            rect_grille[0].getCouleur()==rect_grille[3].getCouleur() && rect_grille[3].getCouleur()==rect_grille[6].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||    
-            rect_grille[1].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[7].getCouleur() && rect_grille[1].getCouleur()==Color.BLACK||    
-            rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK||    
-            rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||    
+            rect_grille[6].getCouleur()==rect_grille[7].getCouleur() && rect_grille[7].getCouleur()==rect_grille[8].getCouleur() && rect_grille[6].getCouleur()==Color.BLACK||
+            rect_grille[0].getCouleur()==rect_grille[3].getCouleur() && rect_grille[3].getCouleur()==rect_grille[6].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||
+            rect_grille[1].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[7].getCouleur() && rect_grille[1].getCouleur()==Color.BLACK||
+            rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK||
+            rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||
             rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK){
-            l1.setText("Le joueur 2 ‡ gagnÈ");
+            JOptionPane.showMessageDialog(this,"Bravo, le joueur 2 a gagn√© !");
         }
     }
 

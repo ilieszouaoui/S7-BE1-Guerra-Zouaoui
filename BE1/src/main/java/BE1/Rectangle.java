@@ -48,22 +48,23 @@ public class Rectangle extends JPanel implements MouseListener{
         g2d.draw(rect);
         addMouseListener(this);
     }
-    
-    public Color getCouleur(){
-        return this.couleur;
-    }
 
     public Color getCouleur(){
         return this.couleur;
     }
+
 
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
         int j=aff.getJoueurCourant();
+        //System.out.println("c'est deja ca");
+
+
 
         // PHASE 1
         if (remplissage==false && aff.getPionDansLaMain()==true) {
+            System.out.println("NON.");
 
             if (j==1) {
                 couleur=Color.RED;
@@ -77,29 +78,23 @@ public class Rectangle extends JPanel implements MouseListener{
         this.remplissage=true;
         this.repaint();
         compteur+=1;
-        System.out.println("nombre de jetons joues : " + compteur);
+        //System.out.println("nombre de jetons joues : " + compteur);
         aff.pionDansLaMain(false);
         aff.Victoire();
         }
-<<<<<<< HEAD
 
-=======
-        
-////         PHASE 2
-        if (remplissage==true && aff.getPionDansLaMain()==false && compteur>5) {
-            if (j==1) {
-                couleur=Color.WHITE;
-                this.remplissage=false;
-                aff.pionDansLaMain(true); 
-                this.repaint();
-                aff.setJoueurCourant(2);
-            }
-            else {
-                couleur=Color.BLACK;
-                aff.setJoueurCourant(1);
-            }
+
+        /// PHASE 2
+        else if (remplissage==true && aff.getPionDansLaMain()==false && compteur>5) {
+            System.out.println("OUI.");
+            couleur=Color.WHITE;
+            this.remplissage=false;
+            aff.pionDansLaMain(true);
+            this.repaint();
         }
->>>>>>> 2cab182f32617fd087cb80fb747ede998fef6434
+
+
+
     }
 
     @Override

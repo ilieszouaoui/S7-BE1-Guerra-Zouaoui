@@ -38,7 +38,7 @@ public class CercleR extends JComponent implements MouseListener{
       this.repaint();
     }
 
-    
+
 
     @Override
     public void paintComponent(Graphics g) {
@@ -50,23 +50,23 @@ public class CercleR extends JComponent implements MouseListener{
         g2d.fill(oval);
         addMouseListener(this);
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
         //rendre le cercle indisponible
         if (dispo==true){
-            System.out.println(aff.getJoueurCourant());
-            
+            //System.out.println("Joueur courant = "+aff.getJoueurCourant());
+
             if(aff.getJoueurCourant()==1 && this.color==Color.RED){
                 color=Color.GRAY;
-                
+
             }
-            
-            if(aff.getJoueurCourant()==2 && this.color==Color.BLACK){   
+
+            if(aff.getJoueurCourant()==2 && this.color==Color.BLACK){
                 color=Color.GRAY;
             }
-            
+
             aff.pionDansLaMain(true);
             this.repaint();
             this.dispo = false;
