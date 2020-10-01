@@ -47,6 +47,10 @@ public class Rectangle extends JPanel implements MouseListener{
         g2d.draw(rect);
         addMouseListener(this);
     }
+    
+    public Color getCouleur(){
+        return this.couleur;
+    }
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -68,6 +72,7 @@ public class Rectangle extends JPanel implements MouseListener{
         this.remplissage=true;            
         this.repaint();
         aff.pionDansLaMain(false);
+        aff.Victoire();
         }
         
 //        // PHASE 2
