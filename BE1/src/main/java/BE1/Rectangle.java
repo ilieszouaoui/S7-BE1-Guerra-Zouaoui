@@ -55,30 +55,24 @@ public class Rectangle extends JComponent implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-        int j=aff.getJoueurCourant();
-        //System.out.println("c'est deja ca");
-
-
-
+        int j=aff.getJoueurCourant();// On récupère l'information du joueur actif
         // PHASE 1
-        if (remplissage==false && aff.getPionDansLaMain()==true) {
-            System.out.println("NON.");
-
-            if (j==1) {
-                couleur=Color.RED;
+        if (remplissage==false && aff.getPionDansLaMain()==true) {// On verifie que la 
+                                    //case est vide et qu'on a bien selectionner un pion
+            if (j==1) {//Si c'est le joueur 1
+                couleur=Color.RED;// On selectionne la bonne couleur et on passe au joueur suivant
                 aff.setJoueurCourant(2);
             }
-            else {
+            else {// de meme pour le joueur 2
                 couleur=Color.BLACK;
                 aff.setJoueurCourant(1);
             }
 
         this.remplissage=true;
-        this.repaint();
+        this.repaint();// On met a jour la case
         compteur+=1;
-        //System.out.println("nombre de jetons joues : " + compteur);
-        aff.pionDansLaMain(false);
-        aff.Victoire();
+        aff.pionDansLaMain(false);// On depose le pion
+        aff.Victoire();// on verifie si un joueur a gagne
         }
 
 

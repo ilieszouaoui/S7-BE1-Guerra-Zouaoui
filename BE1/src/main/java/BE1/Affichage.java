@@ -20,7 +20,7 @@ public class Affichage extends JFrame{
     private Rectangle[] rect_grille = new Rectangle[9];
 
      public Affichage(){
-        setTitle("Jeu de l'araignée");
+        setTitle("Jeu de l'araignee");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(370,350));
         setLocationRelativeTo(null);
@@ -31,7 +31,7 @@ public class Affichage extends JFrame{
         JMenu menu = new JMenu("Jeu");
         //JMenuItem njeu = new JMenuItem("Nouveau jeu");
         //menu.add(njeu);
-        JMenuItem regles = new JMenuItem("Règles du jeu");
+        JMenuItem regles = new JMenuItem("Regles du jeu");
         menu.add(regles);
         JMenuItem quit = new JMenuItem("Quitter");
         menu.add(quit);
@@ -98,10 +98,10 @@ public class Affichage extends JFrame{
             l1.setText("Posez votre pion.");
         }
         if (j==1) {
-            l1.setText("Joueur 1, c'est à vous.");
+            l1.setText("Joueur 1, c'est a� vous.");
         }
         if (j==2) {
-            l1.setText("Joueur 2, c'est à vous.");
+            l1.setText("Joueur 2, c'est a� vous.");
         }
 
     }
@@ -121,7 +121,8 @@ public class Affichage extends JFrame{
             rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.RED||
             rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.RED||
             rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.RED){
-            JOptionPane.showMessageDialog(this,"Bravo, le joueur 1 a gagné !");
+            l1.setText("FELICITATION JOUEUR 1 ! VICOTIRE !");
+            JOptionPane.showMessageDialog(this,"Bravo, le joueur 1 a gagne !");
         }
 
         if (rect_grille[0].getCouleur()==rect_grille[1].getCouleur() && rect_grille[1].getCouleur()==rect_grille[2].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK ||
@@ -132,7 +133,8 @@ public class Affichage extends JFrame{
             rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK||
             rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||
             rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK){
-            JOptionPane.showMessageDialog(this,"Bravo, le joueur 2 a gagné !");
+            l1.setText("FELICITATION JOUEUR 2 ! VICOTIRE !");
+            JOptionPane.showMessageDialog(this,"Bravo, le joueur 2 a gagne !");
         }
     }
 
