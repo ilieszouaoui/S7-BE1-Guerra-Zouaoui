@@ -47,6 +47,10 @@ public class Rectangle extends JPanel implements MouseListener{
         g2d.draw(rect);
         addMouseListener(this);
     }
+    
+    public Color getCouleur(){
+        return this.couleur;
+    }
 
     public Color getCouleur(){
         return this.couleur;
