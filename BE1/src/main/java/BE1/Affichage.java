@@ -13,11 +13,11 @@ import java.awt.*;
  * @author ili?s
  */
 public class Affichage extends JFrame{
-    JPanel p1,p2,p3,p4;
+    private JPanel p1,p2,p3,p4;
     private int joueur_courant;
     private boolean main;
     private JLabel l1;
-    Rectangle[] rect_grille = new Rectangle[9];
+    private Rectangle[] rect_grille = new Rectangle[9];
 
      public Affichage(){
         setTitle("Jeu de l'araignée");
@@ -52,18 +52,18 @@ public class Affichage extends JFrame{
         p2.setPreferredSize(new Dimension(50,200));
         p2.setLayout(new BoxLayout(p2,BoxLayout.PAGE_AXIS));
         p2.add(new JLabel("J1"));
-        p2.add(new CercleR(0,0,Color.RED,this));
-        p2.add(new CercleR(0,0,Color.RED,this));
-        p2.add(new CercleR(0,0,Color.RED,this));
+        p2.add(new CercleR(Color.RED,this));
+        p2.add(new CercleR(Color.RED,this));
+        p2.add(new CercleR(Color.RED,this));
 
         // jetons j2
         p3 = new JPanel();
         p3.setPreferredSize(new Dimension(50,200));
         p3.setLayout(new BoxLayout(p3,BoxLayout.PAGE_AXIS));
         p3.add(new JLabel("J2"));
-        p3.add(new CercleR(0,0,Color.BLACK,this));
-        p3.add(new CercleR(0,0,Color.BLACK,this));
-        p3.add(new CercleR(0,0,Color.BLACK,this));
+        p3.add(new CercleR(Color.BLACK,this));
+        p3.add(new CercleR(Color.BLACK,this));
+        p3.add(new CercleR(Color.BLACK,this));
 
         // jeu
         p4 = new JPanel();
@@ -72,7 +72,7 @@ public class Affichage extends JFrame{
 
 
         for (int k=0;k<9;k++) {
-            p4.add(rect_grille[k] = new Rectangle(this,p4));
+            p4.add(rect_grille[k] = new Rectangle(this));
         }
 
         setLayout(new BorderLayout());

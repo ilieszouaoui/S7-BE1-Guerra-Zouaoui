@@ -25,16 +25,13 @@ public class CercleR extends JComponent implements MouseListener{
     // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
     // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
     private Affichage aff;
-    private double x,y;
 
-    public CercleR(double x_user, double y_user,Color couleur, Affichage p) {
+    public CercleR(Color couleur, Affichage p) {
       // System.out.println("on cree le cercle");
-      x=x_user;
-      y=y_user;
       aff = p;
       color = couleur;
       dispo = true;
-      oval = new Ellipse2D.Double(x,y, 50,50);
+      oval = new Ellipse2D.Double(0,0, 50,50);
       this.repaint();
     }
 
@@ -60,7 +57,6 @@ public class CercleR extends JComponent implements MouseListener{
 
             if(aff.getJoueurCourant()==1 && this.color==Color.RED){
                 color=Color.GRAY;
-
             }
 
             if(aff.getJoueurCourant()==2 && this.color==Color.BLACK){

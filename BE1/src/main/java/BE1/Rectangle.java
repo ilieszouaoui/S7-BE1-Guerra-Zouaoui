@@ -18,16 +18,14 @@ import java.awt.GraphicsEnvironment;
  *
  * @author User
  */
-public class Rectangle extends JPanel implements MouseListener{
+public class Rectangle extends JComponent implements MouseListener{
     private boolean remplissage;
     private Affichage aff;
     private Color couleur;
-    private JPanel panel;
     private static int compteur=0;
 
-    public Rectangle(Affichage a,JPanel p) {
-        aff = a;
-        panel = p;
+    public Rectangle(Affichage p) {
+        aff = p;
         remplissage = false;
         couleur =Color.WHITE;
     }
