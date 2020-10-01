@@ -48,53 +48,55 @@ public class Affichage extends JFrame{
         p2.setPreferredSize(new Dimension(50,200));
         p2.setLayout(new BoxLayout(p2,BoxLayout.PAGE_AXIS));
         p2.add(new JLabel("J1"));
-        p2.add(new CercleR(0,0,"rouge",this));
-        p2.add(new CercleR(0,0,"rouge",this));
-        p2.add(new CercleR(0,0,"rouge",this));
+        p2.add(new CercleR(0,0,Color.RED,this));
+        p2.add(new CercleR(0,0,Color.RED,this));
+        p2.add(new CercleR(0,0,Color.RED,this));
 
         // jetons j2
         p3 = new JPanel();
         p3.setPreferredSize(new Dimension(50,200));
         p3.setLayout(new BoxLayout(p3,BoxLayout.PAGE_AXIS));
         p3.add(new JLabel("J2"));
-        p3.add(new CercleR(0,0,"noir",this));
-        p3.add(new CercleR(0,0,"noir",this));
-        p3.add(new CercleR(0,0,"noir",this));
+        p3.add(new CercleR(0,0,Color.BLACK,this));
+        p3.add(new CercleR(0,0,Color.BLACK,this));
+        p3.add(new CercleR(0,0,Color.BLACK,this));
 
         // jeu
         p4 = new JPanel();
         p4.setPreferredSize(new Dimension(260,300));
         p4.setLayout(new GridLayout(3,3));
-
+        
+        Rectangle[] rect_grille = new Rectangle[9];
         for (int k=0;k<9;k++) {
-            p4.add(new Rectangle(this,p4));
+            p4.add(rect_grille[k] = new Rectangle(this,p4));
         }
-
-
-
+        
         setLayout(new BorderLayout());
         add(p1,BorderLayout.NORTH);
         add(p2,BorderLayout.WEST);
         add(p3,BorderLayout.EAST);
         add(p4,BorderLayout.CENTER);
+        setJoueurCourant(1);// Initialisation du jeu en debutant par le joueur 1 
         pack();
-
 
     }
     public int getJoueurCourant() {
         return joueur_courant;
     }
+    
+    public boolean getPionDansLaMain() {
+        return main;
+    }
 
     public void setJoueurCourant(int j) {
         joueur_courant=j;
-        System.out.println(j);
         if (main) {
             l1.setText("Posez votre pion.");
         }
-        if (j==1 && main==false) {
+        if (j==1) {
             l1.setText("Joueur 1, c'est à vous.");
         }
-        if (j==2 && main==false) {
+        if (j==2) {
             l1.setText("Joueur 2, c'est à vous.");
         }
 
@@ -104,6 +106,10 @@ public class Affichage extends JFrame{
         main = pion;
         System.out.println(main);
         }
+    
+    public void Victoire(){
+        
+    }
 
 
 }
