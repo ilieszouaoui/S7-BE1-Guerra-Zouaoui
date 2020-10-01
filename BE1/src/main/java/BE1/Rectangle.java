@@ -21,13 +21,14 @@ import java.awt.GraphicsEnvironment;
 public class Rectangle extends JPanel implements MouseListener{
     private boolean remplissage;
     private Affichage aff;
-    private String couleur;
+    private Color couleur;
     private JPanel panel;
 
     public Rectangle(Affichage a,JPanel p) {
         aff = a;
         panel = p;
         remplissage = false;
+        couleur =Color.WHITE;
     }
 
 
@@ -40,7 +41,7 @@ public class Rectangle extends JPanel implements MouseListener{
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         Rectangle2D.Double rect = new Rectangle2D.Double(0,0,80,80);
-        g2d.setPaint(Color.WHITE);
+        g2d.setPaint(couleur);
         g2d.fill(rect);
         g2d.setPaint(Color.BLACK);
         g2d.draw(rect);
@@ -50,22 +51,47 @@ public class Rectangle extends JPanel implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-        System.out.println("Coucou");
-
-        //if (remplissage==false) {
         int j=aff.getJoueurCourant();
-        System.out.println(j);
-        if (j==1) {
-            couleur="rouge";
+        
+        // PHASE 1
+        if (remplissage==false && aff.getPionDansLaMain()==true) {
+        
+            if (j==1) {
+                couleur=Color.RED;
+                aff.setJoueurCourant(2);
+            }
+            else {
+                couleur=Color.BLACK;
+                aff.setJoueurCourant(1);
+            }
+        
+        this.remplissage=true;            
+        this.repaint();
+        aff.pionDansLaMain(false);
         }
-        else {
-            couleur="noir";
-        }
+<<<<<<< HEAD
         System.out.println(couleur);
         //CercleR c = new CercleR(e.getX(),e.getY(),couleur,aff);
         panel.add(new CercleR(e.getX(),e.getY(),couleur,aff));
         //c.repaint(e.getX(),e.getY(),50,50);
         //}
+=======
+        
+//        // PHASE 2
+//        if (remplissage==true && aff.getPionDansLaMain()==false) {
+//            if (j==1) {
+//                couleur=Color.WHITE;
+//                this.remplissage=false;
+//                aff.pionDansLaMain(true); 
+//                this.repaint();
+//                aff.setJoueurCourant(2);
+//            }
+//            else {
+//                couleur=Color.BLACK;
+//                aff.setJoueurCourant(1);
+//            }
+//        }
+>>>>>>> 9617378f0cce02099638458cc7ecb5ddb518a517
     }
 
     @Override
