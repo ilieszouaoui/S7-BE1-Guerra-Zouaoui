@@ -63,7 +63,7 @@ public class Rectangle extends JPanel implements MouseListener{
         }
         System.out.println(couleur);
         //CercleR c = new CercleR(e.getX(),e.getY(),couleur,aff);
-        go.add(new CercleR(e.getX(),e.getY(),couleur,aff));
+        panel.add(new CercleR(e.getX(),e.getY(),couleur,aff));
         //c.repaint(e.getX(),e.getY(),50,50);
         //}
     }
