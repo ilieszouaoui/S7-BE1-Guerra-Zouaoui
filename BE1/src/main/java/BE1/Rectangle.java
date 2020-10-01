@@ -5,10 +5,14 @@
  */
 package BE1;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.geom.*;
 import java.awt.event.*;
+import java.awt.Shape;
+import java.awt.geom.Ellipse2D;
+import java.util.List;
+import java.awt.GraphicsEnvironment;
 
 /**
  *
@@ -16,12 +20,17 @@ import java.awt.event.*;
  */
 public class Rectangle extends JPanel implements MouseListener{
     private boolean remplissage;
+    private Affichage aff;
+    private String couleur;
+    private JPanel panel;
 
-    public Rectangle() {
-        this.remplissage = false;
+    public Rectangle(Affichage a,JPanel p) {
+        aff = a;
+        panel = p;
+        remplissage = false;
     }
 
-    
+
 
     // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
     // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
@@ -37,11 +46,26 @@ public class Rectangle extends JPanel implements MouseListener{
         g2d.draw(rect);
         addMouseListener(this);
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent e) {
-            // TODO Auto-generated method stub
-            System.out.println("Coucou");
+        // TODO Auto-generated method stub
+        System.out.println("Coucou");
+
+        //if (remplissage==false) {
+        int j=aff.getJoueurCourant();
+        System.out.println(j);
+        if (j==1) {
+            couleur="rouge";
+        }
+        else {
+            couleur="noir";
+        }
+        System.out.println(couleur);
+        //CercleR c = new CercleR(e.getX(),e.getY(),couleur,aff);
+        go.add(new CercleR(e.getX(),e.getY(),couleur,aff));
+        //c.repaint(e.getX(),e.getY(),50,50);
+        //}
     }
 
     @Override

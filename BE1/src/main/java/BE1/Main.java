@@ -7,7 +7,7 @@ package BE1;
 
 /**
  *
- * @author ili�s
+ * @author ili?s
  */
 public class Main {
 

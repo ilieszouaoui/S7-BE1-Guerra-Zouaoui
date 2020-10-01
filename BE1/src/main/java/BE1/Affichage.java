@@ -10,16 +10,20 @@ import java.awt.*;
 
 /**
  *
- * @author ili�s
+ * @author ili?s
  */
 public class Affichage extends JFrame{
     JPanel p1,p2,p3,p4;
+    private int joueur_courant;
+    private boolean main;
+    private JLabel l1;
 
      public Affichage(){
         setTitle("Jeu de l'araignée");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setPreferredSize(new Dimension(370,350));
         setLocationRelativeTo(null);
+        joueur_courant = 1;
 
         // menu
         JMenuBar menubar = new JMenuBar();
@@ -36,37 +40,37 @@ public class Affichage extends JFrame{
         // création des JPanel
         p1 = new JPanel();
         p1.setLayout(new FlowLayout());
-        JLabel l1 = new JLabel("Joueur 1, c'est à vous.");
+        l1=new JLabel("Joueur 1, c'est à vous.");
         p1.add(l1);
 
+        // jetons j1
         p2 = new JPanel();
         p2.setPreferredSize(new Dimension(50,200));
         p2.setLayout(new BoxLayout(p2,BoxLayout.PAGE_AXIS));
         p2.add(new JLabel("J1"));
-        p2.add(new CercleR("rouge"));
-        p2.add(new CercleR("rouge"));
-        p2.add(new CercleR("rouge"));
+        p2.add(new CercleR(0,0,"rouge",this));
+        p2.add(new CercleR(0,0,"rouge",this));
+        p2.add(new CercleR(0,0,"rouge",this));
 
+        // jetons j2
         p3 = new JPanel();
         p3.setPreferredSize(new Dimension(50,200));
         p3.setLayout(new BoxLayout(p3,BoxLayout.PAGE_AXIS));
         p3.add(new JLabel("J2"));
-        p3.add(new CercleR("noir"));
-        p3.add(new CercleR("noir"));
-        p3.add(new CercleR("noir"));
+        p3.add(new CercleR(0,0,"noir",this));
+        p3.add(new CercleR(0,0,"noir",this));
+        p3.add(new CercleR(0,0,"noir",this));
 
+        // jeu
         p4 = new JPanel();
         p4.setPreferredSize(new Dimension(260,300));
         p4.setLayout(new GridLayout(3,3));
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
-        p4.add(new Rectangle());
+
+        for (int k=0;k<9;k++) {
+            p4.add(new Rectangle(this,p4));
+        }
+
+
 
         setLayout(new BorderLayout());
         add(p1,BorderLayout.NORTH);
@@ -74,6 +78,32 @@ public class Affichage extends JFrame{
         add(p3,BorderLayout.EAST);
         add(p4,BorderLayout.CENTER);
         pack();
+
+
     }
+    public int getJoueurCourant() {
+        return joueur_courant;
+    }
+
+    public void setJoueurCourant(int j) {
+        joueur_courant=j;
+        System.out.println(j);
+        if (main) {
+            l1.setText("Posez votre pion.");
+        }
+        if (j==1 && main==false) {
+            l1.setText("Joueur 1, c'est à vous.");
+        }
+        if (j==2 && main==false) {
+            l1.setText("Joueur 2, c'est à vous.");
+        }
+
+    }
+
+    public void pionDansLaMain(boolean pion) {
+        main = pion;
+        System.out.println(main);
+        }
+
 
 }

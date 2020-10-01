@@ -21,22 +21,32 @@ public class CercleR extends JComponent implements MouseListener{
 
     private Color color;
     private boolean dispo;
-    private Ellipse2D oval = new Ellipse2D.Double(0,0, 50, 50);
+    private Ellipse2D oval;
     // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
     // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
+    private Affichage aff;
+    private double x,y;
 
-    public CercleR(String couleur) {
+    public CercleR(double x_user, double y_user,String couleur, Affichage p) {
+      System.out.println("on cree le cercle");
+      x=x_user;
+      y=y_user;
+      aff = p;
       if (couleur=="rouge"){
         color = Color.RED;
       }
       else {
         color = Color.BLACK;
       }
-      this.dispo = true;
+      dispo = true;
+      oval = new Ellipse2D.Double(x,y, 50,50);
+      this.repaint();
     }
 
     @Override
     public void paintComponent(Graphics g) {
+
+        System.out.println("ça rentre dans le paintcomponent");
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(color);
@@ -49,15 +59,27 @@ public class CercleR extends JComponent implements MouseListener{
 //        if (oval.contains(e.getX(), e.getY()) ) {
 //        System.out.println(e.getX());
 //        }
-        
+        System.out.println("Clicked");
         //rendre le cercle indisponible
-        if (this.dispo=true){
-            this.color=Color.PINK;//pas moyen de mettre a jour la couleur du cercle
-            this.dispo = false;
-            
+        if (dispo==true){
+            aff.pionDansLaMain(true);
+            if (color==Color.RED) {
+                aff.setJoueurCourant(1);
+            }
+            else {
+                aff.setJoueurCourant(2);
+            }
+            System.out.println(aff.getJoueurCourant());
+
+            color=Color.GRAY;//pas moyen de mettre a jour la couleur du cercle
+            this.repaint();
+            //dispo = false;
+
+
+
         }
-        
-        
+
+
     }
 
     @Override
