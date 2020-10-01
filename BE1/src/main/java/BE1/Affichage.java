@@ -17,6 +17,7 @@ public class Affichage extends JFrame{
     private int joueur_courant;
     private boolean main;
     private JLabel l1;
+    Rectangle[] rect_grille = new Rectangle[9];
 
      public Affichage(){
         setTitle("Jeu de l'araign√©e");
@@ -66,7 +67,7 @@ public class Affichage extends JFrame{
         p4.setPreferredSize(new Dimension(260,300));
         p4.setLayout(new GridLayout(3,3));
         
-        Rectangle[] rect_grille = new Rectangle[9];
+        
         for (int k=0;k<9;k++) {
             p4.add(rect_grille[k] = new Rectangle(this,p4));
         }
@@ -109,6 +110,27 @@ public class Affichage extends JFrame{
     
     public void Victoire(){
         
+        if (rect_grille[0].getCouleur()==rect_grille[1].getCouleur() && rect_grille[1].getCouleur()==rect_grille[2].getCouleur() && rect_grille[0].getCouleur()==Color.RED || 
+            rect_grille[3].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[5].getCouleur() && rect_grille[3].getCouleur()==Color.RED||
+            rect_grille[6].getCouleur()==rect_grille[7].getCouleur() && rect_grille[7].getCouleur()==rect_grille[8].getCouleur() && rect_grille[6].getCouleur()==Color.RED||    
+            rect_grille[0].getCouleur()==rect_grille[3].getCouleur() && rect_grille[3].getCouleur()==rect_grille[6].getCouleur() && rect_grille[0].getCouleur()==Color.RED||    
+            rect_grille[1].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[7].getCouleur() && rect_grille[1].getCouleur()==Color.RED||    
+            rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.RED||    
+            rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.RED||    
+            rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.RED){
+            l1.setText("Le joueur 1 ‡ gagnÈ");
+        }
+        
+        if (rect_grille[0].getCouleur()==rect_grille[1].getCouleur() && rect_grille[1].getCouleur()==rect_grille[2].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK || 
+            rect_grille[3].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[5].getCouleur() && rect_grille[3].getCouleur()==Color.BLACK||
+            rect_grille[6].getCouleur()==rect_grille[7].getCouleur() && rect_grille[7].getCouleur()==rect_grille[8].getCouleur() && rect_grille[6].getCouleur()==Color.BLACK||    
+            rect_grille[0].getCouleur()==rect_grille[3].getCouleur() && rect_grille[3].getCouleur()==rect_grille[6].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||    
+            rect_grille[1].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[7].getCouleur() && rect_grille[1].getCouleur()==Color.BLACK||    
+            rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK||    
+            rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||    
+            rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK){
+            l1.setText("Le joueur 2 ‡ gagnÈ");
+        }
     }
 
 

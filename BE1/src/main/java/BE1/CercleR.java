@@ -40,6 +40,8 @@ public class CercleR extends JComponent implements MouseListener{
     }
     
     
+    
+    
 
     @Override
     public void paintComponent(Graphics g) {
