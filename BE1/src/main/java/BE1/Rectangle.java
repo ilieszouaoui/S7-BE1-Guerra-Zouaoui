@@ -23,6 +23,7 @@ public class Rectangle extends JPanel implements MouseListener{
     private Affichage aff;
     private Color couleur;
     private JPanel panel;
+    private static int compteur=0;
 
     public Rectangle(Affichage a,JPanel p) {
         aff = a;
@@ -71,24 +72,26 @@ public class Rectangle extends JPanel implements MouseListener{
         
         this.remplissage=true;            
         this.repaint();
+        compteur+=1;
+        System.out.println("nombre de jetons joues : " + compteur);
         aff.pionDansLaMain(false);
         aff.Victoire();
         }
         
-//        // PHASE 2
-//        if (remplissage==true && aff.getPionDansLaMain()==false) {
-//            if (j==1) {
-//                couleur=Color.WHITE;
-//                this.remplissage=false;
-//                aff.pionDansLaMain(true); 
-//                this.repaint();
-//                aff.setJoueurCourant(2);
-//            }
-//            else {
-//                couleur=Color.BLACK;
-//                aff.setJoueurCourant(1);
-//            }
-//        }
+////         PHASE 2
+        if (remplissage==true && aff.getPionDansLaMain()==false && compteur>5) {
+            if (j==1) {
+                couleur=Color.WHITE;
+                this.remplissage=false;
+                aff.pionDansLaMain(true); 
+                this.repaint();
+                aff.setJoueurCourant(2);
+            }
+            else {
+                couleur=Color.BLACK;
+                aff.setJoueurCourant(1);
+            }
+        }
     }
 
     @Override

@@ -25,7 +25,6 @@ public class CercleR extends JComponent implements MouseListener{
     // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
     // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
     private Affichage aff;
-    private static int compteur=0;
     private double x,y;
 
     public CercleR(double x_user, double y_user,Color couleur, Affichage p) {
@@ -38,9 +37,7 @@ public class CercleR extends JComponent implements MouseListener{
       oval = new Ellipse2D.Double(x,y, 50,50);
       this.repaint();
     }
-    
-    
-    
+
     
 
     @Override
@@ -73,8 +70,6 @@ public class CercleR extends JComponent implements MouseListener{
             aff.pionDansLaMain(true);
             this.repaint();
             this.dispo = false;
-            compteur+=1;
-            System.out.println("nombre de jetons joues : " + compteur);
         }
 
 
