@@ -67,8 +67,6 @@ public class CercleR extends JComponent implements MouseListener{
             this.repaint();           // on le peint en gris sur le cote du plateau
             this.dispo = false;       // il n'est donc plus disponible
         }
-
-
     }
 
     // les methodes suivantes ne sont pas utilisees ici
