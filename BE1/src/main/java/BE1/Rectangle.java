@@ -80,11 +80,28 @@ public class Rectangle extends JComponent implements MouseListener{
 
         /// PHASE 2
         else if (remplissage==true && aff.getPionDansLaMain()==false && compteur>5) {
-            couleur=Color.WHITE;
+        //on vérifie qu'on est dans la bonne phase de jeu et que la case cliquee est remplie
+            couleur=Color.WHITE;//on la vide
             this.remplissage=false;
             aff.pionDansLaMain(true);
-            this.repaint();
+            this.repaint();//on la repeint
+            
+//            if (j==1) {//Si c'est le joueur 1
+//                couleur=Color.RED;// On selectionne la bonne couleur et on passe au joueur suivant
+//                aff.setJoueurCourant(2);
+//            }
+//            else {// de meme pour le joueur 2
+//                couleur=Color.BLACK;
+//                aff.setJoueurCourant(1);
+//            }
+//
+//            this.remplissage=true;
+//            this.repaint();// On met a jour la case
+//            compteur+=1;
+//            aff.pionDansLaMain(false);// On depose le pion
+//            aff.Victoire();// on verifie si un joueur a gagne
         }
+        
 
 
 

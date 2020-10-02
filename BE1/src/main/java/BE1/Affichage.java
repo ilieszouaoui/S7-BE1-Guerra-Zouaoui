@@ -151,7 +151,7 @@ public class Affichage extends JFrame{
             rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.RED||
             rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.RED||
             rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.RED){
-            l1.setText("FELICITATIONS JOUEUR 1 ! VICTOIRE !");
+            l1.setText("FELICITATIONS JOUEUR 1 ! VICTOIRE !");// test de toutes les possibilités de victoire du joueur 1
             JOptionPane.showMessageDialog(this,"Bravo, le joueur 1 a gagne !");
         }
 
@@ -163,7 +163,7 @@ public class Affichage extends JFrame{
             rect_grille[2].getCouleur()==rect_grille[5].getCouleur() && rect_grille[5].getCouleur()==rect_grille[8].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK||
             rect_grille[0].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[8].getCouleur() && rect_grille[0].getCouleur()==Color.BLACK||
             rect_grille[2].getCouleur()==rect_grille[4].getCouleur() && rect_grille[4].getCouleur()==rect_grille[6].getCouleur() && rect_grille[2].getCouleur()==Color.BLACK){
-            l1.setText("FELICITATIONS JOUEUR 2 ! VICTOIRE !");
+            l1.setText("FELICITATIONS JOUEUR 2 ! VICTOIRE !");// test de toutes les possibilités de victoire du joueur 2
             JOptionPane.showMessageDialog(this,"Bravo, le joueur 2 a gagne !");
         }
     }
