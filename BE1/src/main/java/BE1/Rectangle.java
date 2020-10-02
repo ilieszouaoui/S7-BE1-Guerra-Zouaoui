@@ -19,45 +19,47 @@ import java.awt.GraphicsEnvironment;
  * @author User
  */
 public class Rectangle extends JComponent implements MouseListener{
-    private boolean remplissage;
-    private Affichage aff;
-    private Color couleur;
-    private static int compteur=0;
 
+    private boolean remplissage;    // vaut true si la case contient un pion, false sinon
+    private Affichage aff;          // l'affichage dans lequel est affiche le rectangle
+    private Color couleur;          // la couleur du rectangle
+    private static int compteur=0;  // compteur qui compte le nombre de pions poses sur le plateau
+
+    // constructeur
     public Rectangle(Affichage p) {
         aff = p;
         remplissage = false;
-        couleur =Color.WHITE;
+        couleur = Color.WHITE;
     }
 
 
-
-    // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
-    // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
-
+    // methode paintComponent qui affiche le rectangle
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         Rectangle2D.Double rect = new Rectangle2D.Double(0,0,80,80);
+        // on remplit le rectangle
         g2d.setPaint(couleur);
         g2d.fill(rect);
+        // puis on fait un contour noir autour
         g2d.setPaint(Color.BLACK);
         g2d.draw(rect);
         addMouseListener(this);
     }
 
+    // getter pour la couleur du rectangle (attribut couleur)
     public Color getCouleur(){
-        return this.couleur;
+        return couleur;
     }
 
-
+    // methode mouseClicked
+    // agit lors du clic sur le cercle
     @Override
     public void mouseClicked(MouseEvent e) {
-        // TODO Auto-generated method stub
-        int j=aff.getJoueurCourant();// On r�cup�re l'information du joueur actif
+        int j=aff.getJoueurCourant();// On recupere l'information du joueur actif
         // PHASE 1
-        if (remplissage==false && aff.getPionDansLaMain()==true) {// On verifie que la 
+        if (remplissage==false && aff.getPionDansLaMain()==true) {// On verifie que la
                                     //case est vide et qu'on a bien selectionner un pion
             if (j==1) {//Si c'est le joueur 1
                 couleur=Color.RED;// On selectionne la bonne couleur et on passe au joueur suivant
@@ -78,7 +80,6 @@ public class Rectangle extends JComponent implements MouseListener{
 
         /// PHASE 2
         else if (remplissage==true && aff.getPionDansLaMain()==false && compteur>5) {
-            System.out.println("OUI.");
             couleur=Color.WHITE;
             this.remplissage=false;
             aff.pionDansLaMain(true);
@@ -88,6 +89,9 @@ public class Rectangle extends JComponent implements MouseListener{
 
 
     }
+
+    // les methodes suivantes ne sont pas utilisees ici
+    // mais elles doivent etre ecrites pour que la classe implemente bien l'interface MouseListener
 
     @Override
     public void mousePressed(MouseEvent e) {

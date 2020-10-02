@@ -19,28 +19,23 @@ import java.util.List;
  */
 public class CercleR extends JComponent implements MouseListener{
 
-    private Color color;
-    private boolean dispo;
-    private Ellipse2D oval;
-    // le constructeur par dÃ©faut appel celui de la classe mÃ¨re
-    // Ici rien Ã  faire de plus. Donc pas de constructeur (explicit)
-    private Affichage aff;
+    private Color color;    // couleur du pion
+    private boolean dispo;  // vaut true si le pion n'a pas ete joue, false sinon
+    private Ellipse2D oval; // objet Ellipse2D qui sera le cercle a creer
+    private Affichage aff;  // l'affichage dans lequel est affiche le cercle
 
+    // constructeur
     public CercleR(Color couleur, Affichage p) {
-      // System.out.println("on cree le cercle");
       aff = p;
       color = couleur;
       dispo = true;
       oval = new Ellipse2D.Double(0,0, 50,50);
-      this.repaint();
     }
 
 
-
+    // methode paintComponent qui affiche le cercle
     @Override
     public void paintComponent(Graphics g) {
-
-        // System.out.println("ça rentre dans le paintcomponent");
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         g2d.setPaint(color);
@@ -48,28 +43,36 @@ public class CercleR extends JComponent implements MouseListener{
         addMouseListener(this);
     }
 
+
+    // methode mouseClicked
+    // agit lors du clic sur le cercle
     @Override
     public void mouseClicked(MouseEvent e) {
         // TODO Auto-generated method stub
-        //rendre le cercle indisponible
+
         if (dispo==true){
-            //System.out.println("Joueur courant = "+aff.getJoueurCourant());
 
-            if(aff.getJoueurCourant()==1 && this.color==Color.RED){
+            // on verifie que le joueur courant clique bien sur un de ses pions
+            // le joueur 1 doit cliquer sur un pion rouge et le joueur 2 sur un pions noir
+            // sinon on ne fait rien
+            if(aff.getJoueurCourant()==1 && color==Color.RED){
+                color=Color.GRAY;
+            }
+            if(aff.getJoueurCourant()==2 && color==Color.BLACK){
                 color=Color.GRAY;
             }
 
-            if(aff.getJoueurCourant()==2 && this.color==Color.BLACK){
-                color=Color.GRAY;
-            }
 
-            aff.pionDansLaMain(true);
-            this.repaint();
-            this.dispo = false;
+            aff.pionDansLaMain(true); // le pion sur lequel il y a eu un clic passe dans la main du joueur
+            this.repaint();           // on le peint en gris sur le cote du plateau
+            this.dispo = false;       // il n'est donc plus disponible
         }
 
 
     }
+
+    // les methodes suivantes ne sont pas utilisees ici
+    // mais elles doivent etre ecrites pour que la classe implemente bien l'interface MouseListener
 
     @Override
     public void mousePressed(MouseEvent e) {
